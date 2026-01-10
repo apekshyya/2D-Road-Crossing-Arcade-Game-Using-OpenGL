@@ -90,7 +90,7 @@ public:
   // Draws a bitmap text on given coordinates of screen with given font as parameters
   static void drawText(char *txt, GLfloat x, GLfloat y, void* font) {
     char text[32];
-    sprintf(text, "%s", txt);
+    snprintf(text, sizeof(text), "%s", txt);
     glRasterPos2f(x, y);
     for (int i = 0; text[i] != '\0'; i++)
       glutBitmapCharacter(font, text[i]);

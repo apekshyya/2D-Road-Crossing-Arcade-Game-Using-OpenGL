@@ -148,7 +148,7 @@ int main(GLint argc, char** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowSize(ww, wh);
-	glutCreateWindow("A Pedestrian's Tragedy");
+	glutCreateWindow("Road Crossing Game");
 
 	init();
 

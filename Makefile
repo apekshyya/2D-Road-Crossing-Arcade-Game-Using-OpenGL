@@ -1,10 +1,11 @@
-# Makefile for PedestriansTragedy on macOS
+# Makefile for roadcrossing on macOS
+# Road Crossing Game - Cross the road safely!
 
 # Compiler
 CXX = g++
 
-# Compiler flags
-CXXFLAGS = -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include
+# Compiler flags - suppress OpenAL deprecation warnings since they're unavoidable on macOS
+CXXFLAGS = -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -Wno-deprecated-declarations -I./include
 
 # Linker flags for macOS
 LDFLAGS = -framework OpenGL -framework GLUT -framework OpenAL
@@ -19,7 +20,7 @@ SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 
 # Executable name
-TARGET = PedestriansTragedy
+TARGET = roadcrossing
 
 # Default target
 all: $(BUILD_DIR) $(TARGET)

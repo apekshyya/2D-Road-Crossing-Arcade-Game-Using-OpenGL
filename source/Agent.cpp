@@ -112,6 +112,7 @@ GLint Agent::step(DIRECTION direction)
       return 1;
     }
   }
+  return 0; // No valid move made
 }
 
 void Agent::move()

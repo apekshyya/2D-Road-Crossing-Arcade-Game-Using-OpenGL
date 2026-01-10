@@ -1,32 +1,36 @@
 #!/bin/bash
 
-# Build script for PedestriansTragedy on macOS
+# Build script for roadcrossing on macOS
+# Road Crossing Game - Cross the road safely!
 
-echo "Building PedestriansTragedy..."
+echo "Building roadcrossing..."
 
 # Create build directory
 mkdir -p build
 
+# Compile flags with OpenAL deprecation suppressed
+COMPILE_FLAGS="-std=c++11 -Wall -DGL_SILENCE_DEPRECATION -Wno-deprecated-declarations -I./include"
+
 # Compile all source files
 echo "Compiling source files..."
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/Actor.cpp -o build/Actor.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/Agent.cpp -o build/Agent.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/Coin.cpp -o build/Coin.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/Main.cpp -o build/Main.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/Pawn.cpp -o build/Pawn.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/SoundManager.cpp -o build/SoundManager.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/Vertex.cpp -o build/Vertex.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/World.cpp -o build/World.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/WorldObject.cpp -o build/WorldObject.o
-g++ -std=c++11 -Wall -DGL_SILENCE_DEPRECATION -I./include -c source/WavLoader.cpp -o build/WavLoader.o
+g++ $COMPILE_FLAGS -c source/Actor.cpp -o build/Actor.o
+g++ $COMPILE_FLAGS -c source/Agent.cpp -o build/Agent.o
+g++ $COMPILE_FLAGS -c source/Coin.cpp -o build/Coin.o
+g++ $COMPILE_FLAGS -c source/Main.cpp -o build/Main.o
+g++ $COMPILE_FLAGS -c source/Pawn.cpp -o build/Pawn.o
+g++ $COMPILE_FLAGS -c source/SoundManager.cpp -o build/SoundManager.o
+g++ $COMPILE_FLAGS -c source/Vertex.cpp -o build/Vertex.o
+g++ $COMPILE_FLAGS -c source/World.cpp -o build/World.o
+g++ $COMPILE_FLAGS -c source/WorldObject.cpp -o build/WorldObject.o
+g++ $COMPILE_FLAGS -c source/WavLoader.cpp -o build/WavLoader.o
 
 # Link
 echo "Linking..."
-g++ build/*.o -framework OpenGL -framework GLUT -framework OpenAL -o PedestriansTragedy
+g++ build/*.o -framework OpenGL -framework GLUT -framework OpenAL -o roadcrossing
 
 if [ $? -eq 0 ]; then
     echo "Build successful!"
-    echo "Run with: ./PedestriansTragedy"
+    echo "Run with: ./roadcrossing"
 else
     echo "Build failed!"
     exit 1

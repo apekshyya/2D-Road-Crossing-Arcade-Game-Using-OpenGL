@@ -420,7 +420,7 @@ void World::checkCollisions()
 
 void World::showScore() {
   char scoreText[21];
-  sprintf(scoreText, "Score: %d", this->score);
+  snprintf(scoreText, sizeof(scoreText), "Score: %d", this->score);
   glColor3f(1.0f, 1.0f, 0.0f);
   Tools::drawText(scoreText, 0, wh - 0.75*this->squareSize, GLUT_BITMAP_HELVETICA_18);
 }
@@ -443,7 +443,7 @@ void World::drawWorld()
   if (coinTextTimeout > frameTimer) 
   {
     glColor3f(1.0f, 1.0f, 0.0f);
-    Tools::drawText("+5", coinTextX, coinTextY, GLUT_BITMAP_HELVETICA_18);
+    Tools::drawText((char*)"+5", coinTextX, coinTextY, GLUT_BITMAP_HELVETICA_18);
   }
 
   this->showScore();
@@ -454,14 +454,14 @@ void World::drawWorld()
     glColor3f(1.0f, 0.0f, 0.0f);
     if (this->agent->triedToGoBack)
     {
-      Tools::drawText("Don't be a coward", this->agent->offsetX - this->squareSize * 1.25, this->agent->offsetY + 2 * this->squareSize, GLUT_BITMAP_TIMES_ROMAN_24);
+      Tools::drawText((char*)"Don't be a coward", this->agent->offsetX - this->squareSize * 1.25, this->agent->offsetY + 2 * this->squareSize, GLUT_BITMAP_TIMES_ROMAN_24);
     }
     else
     {
-      Tools::drawText("WASTED", this->agent->offsetX - this->squareSize / 2, this->agent->offsetY + 2 * this->squareSize, GLUT_BITMAP_TIMES_ROMAN_24);
+      Tools::drawText((char*)"WASTED", this->agent->offsetX - this->squareSize / 2, this->agent->offsetY + 2 * this->squareSize, GLUT_BITMAP_TIMES_ROMAN_24);
     }
     char scoreText[21];
-    sprintf(scoreText, "Your score: %d", this->score);
+    snprintf(scoreText, sizeof(scoreText), "Your score: %d", this->score);
     glColor3f(1.0f, 0.0f, 0.0f);
     Tools::drawText(scoreText, this->agent->offsetX - this->squareSize / 1.70, this->agent->offsetY + 1.5 * this->squareSize, GLUT_BITMAP_HELVETICA_18);
   }
