@@ -1,6 +1,7 @@
 #include "Tools.hpp"
 #include "WorldObject.hpp"
 
+// Initialize with vertices and type; trees keep only an anchor point for drawing.
 WorldObject::WorldObject(vector<Vertex> vertices, TYPE objectType)
 {
   this->objectType = objectType;
@@ -23,15 +24,18 @@ void WorldObject::draw()
 {
   if (objectType == TYPE::PAVEMENT)
   {
+    //Green strip for pavement
     glColor3f(0.0f, 1.0f, 0.0f);
   }
   else if (objectType == TYPE::ROAD)
   {
+    //Gray strip for road
     glColor3f(0.5f, 0.5f, 0.5f);
   }
   else if (objectType == TYPE::FLORA_TREE_1)
   {
     GLint r = 20;
+    //circle canopy plus four triangle arms
     glColor3f(0, 0.5f, 0);
     Tools::drawCircle(this->offsetX, this->offsetY, r);
 
@@ -63,6 +67,7 @@ void WorldObject::draw()
   else if (objectType == TYPE::FLORA_TREE_2)
   {
     GLint r = 20;
+     // Circle canopy made of one core circle plus smaller satellites
     glColor3f(0, 0.5f, 0);
     Tools::drawCircle(this->offsetX, this->offsetY, r);
 
@@ -82,6 +87,7 @@ void WorldObject::draw()
     return;
   }
 
+  // Default: draw the stored polygon for pavement/road
   glBegin(GL_POLYGON);
   for (vector<Vertex>::iterator vertex = this->vertices.begin(); vertex != this->vertices.end(); ++vertex) 
   {
