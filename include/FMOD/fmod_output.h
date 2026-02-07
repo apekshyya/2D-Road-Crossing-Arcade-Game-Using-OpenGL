@@ -6,7 +6,7 @@
 /* can register and use.  See the documentation and examples on how to make a working plugin.               */
 /*                                                                                                          */
 /* ======================================================================================================== */
-
+ 
 #ifndef _FMOD_OUTPUT_H
 #define _FMOD_OUTPUT_H
 
