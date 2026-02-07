@@ -100,7 +100,6 @@ void World::initWorld()
       }
     }
   }
-
   // Create player agent
   agent = new Agent(squareSize, squareSize, ((wSquareCount) / 2 * squareSize), 0, blockedSquares, ww, wh);
   this->state = STATE::RUN;
@@ -123,9 +122,8 @@ void World::drawRoadLines()
     }
     row++;
   }
-  glLineWidth(1); // Roll back line width change, it includes roads and pavements
+  glLineWidth(1); // Roll back line width change, it includes road and pavement
 }
-
 
 void World::drawWorldObjects_Layer1()
 {
