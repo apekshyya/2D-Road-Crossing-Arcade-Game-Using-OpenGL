@@ -8,7 +8,7 @@
 #include "Vertex.hpp"
   
 using namespace std;
-
+ 
 // Parent class for dynamic objects in game world
 class Actor {
 public:
