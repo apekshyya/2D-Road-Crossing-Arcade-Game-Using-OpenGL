@@ -1,6 +1,6 @@
 #pragma once
 #include "Actor.hpp"
-
+ 
 // Objects non-controlled by player
 class Pawn :public Actor {
 public:
