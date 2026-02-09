@@ -10,7 +10,7 @@
 using namespace std;
 
 class Tools {
-public:
+public: 
   // Main method for smooth animations seen in the game, interpolates v0 to v1 on delta value
   static float lerp(GLfloat v0, GLfloat v1, GLfloat delta) {
     return (1 - delta) * v0 + delta * v1;
