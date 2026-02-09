@@ -8,7 +8,7 @@
 #include "Vertex.hpp"
 
 using namespace std;
-
+ 
 class Tools {
 public: 
   // Main method for smooth animations seen in the game, interpolates v0 to v1 on delta value
