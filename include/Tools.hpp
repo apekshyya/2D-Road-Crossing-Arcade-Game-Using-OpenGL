@@ -6,7 +6,7 @@
 #endif
 #include <vector>
 #include "Vertex.hpp"
-
+ 
 using namespace std;
  
 class Tools {
