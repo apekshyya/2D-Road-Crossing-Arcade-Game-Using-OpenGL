@@ -6,11 +6,6 @@
 
 A 2D arcade-style road crossing game built in C++ with OpenGL/GLUT and FMOD audio. The objective is to move forward, avoid traffic, collect coins, and survive as long as possible.
   
-## screenshots
-
-![gamepreview](./screenshots/gamepreview.png)
-
-
 ## Features
 
 - Procedurally generated roads and pavements
